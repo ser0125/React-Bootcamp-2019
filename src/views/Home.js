@@ -32,7 +32,6 @@ class Home extends React.Component {
     render() {
         let  movies = this.state.moviesData;
         if(movies){
-          console.log(this.state.movies);
           return <div>
           <h1 className='main-title'>Movie App</h1>
           <div className='content'>
