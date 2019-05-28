@@ -6,7 +6,16 @@
   display: flex;
   flex-wrap: wrap;
 }
-
+.form {
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  margin: 0 auto;
+  max-width:300px;
+}
+.form input {
+  margin: 5px;
+}
 .movie-container {
   border: 1px solid azure;
   color: azure;
