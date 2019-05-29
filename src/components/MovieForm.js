@@ -28,7 +28,6 @@ class MovieForm extends React.Component {
   }
 
   componentDidMount () {
-    console.log(this.yearRef.current.focus());
   }
 
   render () {
