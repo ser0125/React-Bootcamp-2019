@@ -28,7 +28,7 @@ class Home extends React.Component {
             title: res.data.title,
             poster_path: res.data.poster_path,
             overview: res.data.overview,
-            genre: [...res.data.genres]
+            genres: [...res.data.genres]
           }
           newMovies.unshift(newMovie);
           this.setState ({

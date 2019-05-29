@@ -40,7 +40,11 @@ class MovieCard extends React.Component {
   }
   
   render() {
-    const { id, title, year, poster_path, overview, deleteMovie } = this.props
+    let genresSpecific = null;
+    const { id, title, year, poster_path, overview, deleteMovie, genres } = this.props
+    if(genres) {
+       genresSpecific = genres.map((genre,index) => <span key={index} style={{margin:'10px', border:'1px solid white'}}>{genre.name}</span>)
+    }
     return <div className='movie-container'>   
         <div className='favourite-container'>
             <button onClick={this.handleCheck} className='favourite-button'>
@@ -56,6 +60,7 @@ class MovieCard extends React.Component {
         <img className='overview-img' src={`https://image.tmdb.org/t/p/w1280${poster_path}`} alt='Movie' />
         <p>{overview}</p>
       </div>
+      {genresSpecific}
     </div>
     }
 }
