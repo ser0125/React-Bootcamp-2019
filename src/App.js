@@ -24,12 +24,8 @@ function Routes() {
 
 function App() {
   return <Router>
-    <Link to={{
-      pathname: "/add",
-      search: "?sort=name",
-      state: { name: 'pablo' }
-    }}>Home</Link>
-    <Link to='/'>Form</Link>
+    <Link to='/'>Home</Link>
+    <Link to='/add'>Form</Link>
     <Routes />
   </Router>
 }

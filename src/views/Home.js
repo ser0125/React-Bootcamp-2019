@@ -64,7 +64,7 @@ class Home extends React.Component {
           return (
           <MainLayout>
           <MovieSearch onSubmitMovie={this.searchMovie}/>
-          {movies.map((movie, index) => <MovieCard deleteMovie={this.deleteMovie} key={movie.id} {...movie} />)}
+          {movies.map((movie, index) => <MovieCard deleteMovie={this.deleteMovie} key={movie.id} {...movie} {...this.props}/>)}
           </MainLayout>
           )
         }

@@ -38,14 +38,16 @@ class MovieCard extends React.Component {
   componentWillUnmount() {
     console.log('I will unmount')
   }
-  
+  handleDetail = () => {
+    this.props.history.push(`/movie/${this.props.id}`)
+  }
   render() {
     let genresSpecific = null;
     const { id, title, year, poster_path, overview, deleteMovie, genres } = this.props
     if(genres) {
        genresSpecific = genres.map((genre,index) => <span key={index} style={{margin:'10px', border:'1px solid white'}}>{genre.name}</span>)
     }
-    return <div className='movie-container'>   
+    return <div className='movie-container'  >   
         <div className='favourite-container'>
             <button onClick={this.handleCheck} className='favourite-button'>
                 <span className={`fa fa-star favourite-star ${this.state.checked ? 'checked': ''}`}></span>
@@ -57,7 +59,7 @@ class MovieCard extends React.Component {
       <h1>{title}</h1>
       <div>{year}</div>
       <div className='overview-container'>
-        <img className='overview-img' src={`https://image.tmdb.org/t/p/w1280${poster_path}`} alt='Movie' />
+        <img onClick={this.handleDetail} className='overview-img' src={`https://image.tmdb.org/t/p/w1280${poster_path}`} alt='Movie' />
         <p>{overview}</p>
       </div>
       {genresSpecific}
