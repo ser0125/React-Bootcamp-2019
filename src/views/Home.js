@@ -1,10 +1,10 @@
 import React from 'react';
-import MovieCard from '../components/MovieCard'
-import MovieForm from '../components/MovieForm.js';
+import MovieCard from '../components/MovieCard';
 import MovieSearch from '../components/MovieSearch.js';
+import MainLayout from '../layouts/MainLayout.js';
 import axios from 'axios';
+import { API_KEY } from '../data/const';
 
-const API_KEY = 'd8862dd490c5a0eee2e11969564ca8e7';
 
 class Home extends React.Component {
   state = {
@@ -61,14 +61,12 @@ class Home extends React.Component {
     render() {
         let  movies = this.state.moviesData;
         if(movies){
-          return <div>
-          <h1 className='main-title'>Movie App</h1>
-          <MovieForm onSubmit={this.addMovie}/>
+          return (
+          <MainLayout>
           <MovieSearch onSubmitMovie={this.searchMovie}/>
-          <div className='content'>
-            {movies.map((movie, index) => <MovieCard deleteMovie={this.deleteMovie} key={movie.id} {...movie} />)}
-          </div>
-        </div>
+          {movies.map((movie, index) => <MovieCard deleteMovie={this.deleteMovie} key={movie.id} {...movie} />)}
+          </MainLayout>
+          )
         }
         return null;
         
